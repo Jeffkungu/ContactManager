@@ -21,17 +21,14 @@ def send(phonenum):
     text = raw_input("___")
     message = text.encode('utf8')
 
-# Create a new instance of our awesome gateway class
     gateway = AfricasTalkingGateway(username, apikey)
-# Any gateway errors will be captured by our custom Exception class below,
 
-# so wrap the call in a try-catch block
     try:
-        # Thats it, hit send and we'll take care of the rest.
+
         results = gateway.sendMessage(user.phoneno, message)
 
         for recipient in results:
-            # status is either "Success" or "error message"
+
             print ("Number: " + recipient['number'] +
                    " Status: " + recipient['status'])
 
@@ -39,4 +36,4 @@ def send(phonenum):
 
         print ('Encountered an error while sending: %s' % str(e))
 
-send("0717551051")
+
