@@ -7,6 +7,7 @@ Usage:
     my_program tcp <host> <port> [--timeout=<seconds>]
     my_program add <f_name> <l_name> <phone_number>
     my_program send <phone_number>
+    my_program search <f_name>
     my_program serial <port> [--baud=<n>] [--timeout=<seconds>]
     my_program (-i | --interactive)
     my_program (-h | --help | --version)
@@ -23,6 +24,7 @@ from docopt import docopt, DocoptExit
 
 from addcontct import addperson
 from sendtxt import send
+from search import search
 
 
 def docopt_cmd(func):
@@ -83,6 +85,13 @@ class MyInteractive (cmd.Cmd):
         num = arg['<phone_number>']
 
         send(num)
+
+    @docopt_cmd
+    def do_search(self, arg):
+        """Usage: search <f_name>"""
+        fname = arg['<f_name>']
+       
+        search(fname)   
 
     @docopt_cmd
     def do_serial(self, arg):

@@ -8,6 +8,10 @@ def search(first_name):
 		return "User not found"
 
 	for user in users:
-		 user_data = [str(user.id), user.fname, user.lname, user.phoneno]
+		print(str(user.id))
+		print(user.fname)
+		print(user.lname)
+		print(user.phoneno)
+        user_data = [str(user.id), user.fname, user.lname, user.phoneno]
 
 	return tabulate([user_data], headers=['Id', 'first_name', 'last_name', 'pnum'])
